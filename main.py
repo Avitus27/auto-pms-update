@@ -13,7 +13,6 @@ build = os.getenv("BUILD")
 plex = os.getenv("PLEX_LOCATION")
 download_location = os.getenv("DOWNLOAD_LOCATION")
 
-print(download_location)
 
 result = requests.get('https://plex.tv/pms/downloads/5.json')
 result = result.json()
@@ -30,7 +29,6 @@ else:
 
 for item in result['releases']:
   if item['build'] == build:
-    print(item['url'])
     update_url = item['url']
     break
 
@@ -40,4 +38,4 @@ file_location = "{}update.deb".format(download_location)
 with open(file_location, 'wb') as f:
     f.write(file_download.content)
 
-# TODO: run install
+os.system("dpkg -i {}".format(file_location))

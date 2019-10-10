@@ -9,6 +9,8 @@ $ ./main.py
 $ python3 main.py
 ```
 
+Depending on your setup the script may need to run as a privileged user. If you're using Ubuntu, for example, you might get around this by setting this to auto-run as root using `$ sudo crontab -e`
+
 ## Settings
 
 Settings are saved in the `.env` file created during the setup described above
@@ -36,3 +38,6 @@ The location of the Plex Media Server executable. Test this value is valid by ru
 
 ### Download Location
 Where you want the file saved. Just make sure the path is valid.
+
+## TODO
+[] include setting for redhat

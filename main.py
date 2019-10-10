@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-import json
 import os
 import requests
 
@@ -22,15 +21,15 @@ current_version = version.parse(result['version'])
 system_version = version.parse(str(os.system(plex + " --version")))
 
 if current_version > system_version:
-  print("Update Found!")
+    print("Update Found!")
 else:
-  print("No Update")
-  exit(0)
+    print("No Update")
+    exit(0)
 
 for item in result['releases']:
-  if item['build'] == build:
-    update_url = item['url']
-    break
+    if item['build'] == build:
+        update_url = item['url']
+        break
 
 file_download = requests.get(update_url)
 file_location = "{}update.deb".format(download_location)

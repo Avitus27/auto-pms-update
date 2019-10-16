@@ -18,7 +18,9 @@ result = result.json()
 
 result = result['computer'][system_type]
 current_version = version.parse(result['version'])
-system_version = version.parse(str(os.system(plex + " --version")))
+system_version = str(os.system(plex + " -- version"))
+system_version = version.parse(system_version) if not system_version.startswith(
+    "v") else version.parse(system_version[1:])
 
 if current_version > system_version:
     print("Update Found!")

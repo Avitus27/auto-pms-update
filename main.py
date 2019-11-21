@@ -4,7 +4,10 @@ import os
 import subprocess
 import requests
 
+from dotenv import load_dotenv
 from packaging import version
+
+load_dotenv()
 
 system_type = os.getenv("OS")
 build = os.getenv("BUILD")
